@@ -5,7 +5,7 @@ module.exports = class Track {
         this.duration = data['duration'] || Number(data['DURATION']);
         this.title_short = data['title_short'] || data['SNG_TITLE'];
         this.title_version = data['title_version'] || data['VERSION'] || '';
-        this.explicit_lyrics = data['explicit_lyrics'] || data['EXPLICIT_TRACK_CONTENT']['EXPLICIT_LYRICS_STATUS'] == 1;
+        this.explicit_lyrics = data['explicit_lyrics'] !== undefined ? data['explicit_lyrics'] : data['EXPLICIT_TRACK_CONTENT']['EXPLICIT_LYRICS_STATUS'] == 1;
     }
 
 }
