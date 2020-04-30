@@ -1,8 +1,9 @@
 {
     "name": "@drippy-music/deezer-api",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Deezer API for Node.JS",
     "main": "index.js",
+    "types": "index.d.ts",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
