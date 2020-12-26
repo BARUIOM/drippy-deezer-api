@@ -47,14 +47,19 @@ module.exports = class Deezer {
                 params: { q: `artist:"${query}" track:"${track}"` }
             });
 
-            return [...res.data['data']].map(e => new Track(e));
+            if ('data' in res.data) {
+                return [...res.data['data']]
+                    .map(e => new Track(e));
+            }
         }
 
         const data = { query: query, filter: '', output: 'TRACK' };
         const res = await axios.post(web_api, data, {
             params: { method: 'search.music' }
         });
-        return [...res.data.results['data']].map(e => new Track(e));
+
+        return [...res.data.results['data']]
+            .map(e => new Track(e));
     }
 
     async getTrack(track_id) {
